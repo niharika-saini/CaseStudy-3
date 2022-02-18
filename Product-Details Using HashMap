@@ -1,0 +1,210 @@
+
+
+package my.products;
+import java.util.Scanner;
+import java.util.HashMap;
+public class product {
+	private int id;
+	private String name;
+	private int price;
+	private int code;
+	private String Address;
+	private int pincode;
+	
+	
+	public product() {
+		
+	}
+	
+	public product(int id,String name,int price,int code,String Address,int pincode) {
+		this.id=id;
+		this.name=name;
+		this.price=price;
+		this.code=code;
+		this.Address=Address;
+		this.pincode=pincode;
+		
+	}
+	static HashMap<Integer,product> pro=new HashMap<>();
+	public static void Add(product prod) {
+		pro.put(prod.id, prod);
+	}
+	public static void Update(int id) {
+		product p = new product();
+		p=pro.get(id);
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println(" 1. Upadte--Name");
+		System.out.println(" 2. Upadte--Price");
+		System.out.println(" 3. Upadte--Code");
+		System.out.println(" 4. Upadte--Address");
+		System.out.println(" 5. Upadte--Pincode");
+		System.out.println("0. No update....");
+		int u=sc.nextInt();
+		switch(u) {
+		case 0:System.out.println("Dont want to update...");
+		break;
+		case 1:{
+			System.out.println("Enter new name of Product:");
+			String name1=sc.nextLine();
+			System.out.println("Updated name"+p.name);
+			break;
+		}
+		case 2:{
+			System.out.println("Enter new price of Product:");
+			int price1=sc.nextInt();
+			System.out.println("Updated price"+p.price);
+			break;
+		}
+		case 3:{
+			System.out.println("Enter new code of Product:");
+			int price1=sc.nextInt();
+			System.out.println("Updated code"+p.code);
+			break;
+		}
+		case 4:{
+			System.out.println("Enter new Address of Product:");
+			String Address1=sc.nextLine();
+			System.out.println("Updated Address"+p.Address);
+			break;
+		}
+		case 5:{
+			System.out.println("Enter new pincode of Product:");
+			int price1=sc.nextInt();
+			System.out.println("Updated pincode"+p.pincode);
+			break;
+		}
+		default : System.out.println("No updation...");
+		
+		
+		}
+	
+		
+}
+	public static void Delete(int id) {
+		pro.remove(id);
+		System.out.println("Product Successfully Deleted....");
+	}
+	public static void GetProduct(int id) {
+		System.out.println(pro.get(id).toString());
+	}
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		System.out.println("Which Operation you want to preform:");
+		System.out.println("Enter y for Continue and n for stop..");
+		char c=scan.next().charAt(0);
+		do {
+			System.out.println(" 1. Add Product");
+			System.out.println(" 2. Update Product");
+			System.out.println(" 3. Delete Product");
+			System.out.println(" 4. Get Product");
+			System.out.println(" 5. Get All Product");
+			System.out.println();
+			System.out.println("Enter your Choice...");
+			int nt =scan.nextInt();
+			switch(nt) {
+			case 1:{
+				System.out.println("Enter the details of Product which you want to add...");
+				int id;
+				String name;
+				int price;
+				int code;
+				String Address;
+				int pincode;
+				System.out.println("Enter the id of your product-->");
+				int id1=scan.nextInt();
+				System.out.println("Enter the name of your product-->");
+				String name1=scan.next();
+				System.out.println("Enter the price of your product-->");
+				int price1=scan.nextInt();
+				System.out.println("Enter the code of your product-->");
+				int code1=scan.nextInt();
+				System.out.println("Enter the Address of your product-->");
+				String add=scan.next();
+				System.out.println("Enter the pincode of your product-->");
+				int pincode1=scan.nextInt();
+				product m=new product(id1 ,name1 ,price1,code1 ,add , pincode1);
+				Add(m);
+				System.out.println("Product Successfully Added....");
+				System.out.println("Enter y or Y to continue : ");
+				c = scan.next().charAt(0);
+				break;
+				
+			}
+			case 2:{
+				System.out.println("Enter the id of Product which you want to update..");
+				int u1=scan.nextInt();
+				Update(u1);
+				System.out.println("Product Successfully Added....");
+				System.out.println("Enter y or Y to continue : ");
+				c = scan.next().charAt(0);
+				break;
+				
+			}
+			case 3:{
+				System.out.println("Enter the id of Product which you want to delete..");
+				int d1=scan.nextInt();
+				Delete(d1);
+				System.out.println("Product Successfully Added....");
+				System.out.println("Enter y or Y to continue : ");
+				c = scan.next().charAt(0);
+				break;
+			}
+				
+			case 4:{
+				System.out.println("Enter the id of Product which information you want ");
+				int g1=scan.nextInt();
+				GetProduct(g1);
+				System.out.println("Product Successfully Added....");
+				System.out.println("Enter y or Y to continue : ");
+				c = scan.next().charAt(0);
+				break;
+			}
+			default :{
+				System.out.println("No information...");
+			}
+		}
+			
+		}while((c=='y') || (c=='Y'));
+		
+		
+	}
+	
+
+}
+
+
+=====================================================================================================================================================================================
+
+
+
+OUTPUT:
+Which Operation you want to preform:
+Enter y for Continue and n for stop..
+y
+ 1. Add Product
+ 2. Update Product
+ 3. Delete Product
+ 4. Get Product
+ 5. Get All Product
+
+Enter your Choice...
+
+1
+Enter the details of Product which you want to add...
+Enter the id of your product-->
+23
+Enter the name of your product-->
+dettol
+Enter the price of your product-->
+234
+Enter the code of your product-->
+1234
+Enter the Address of your product-->
+Jaipur
+Enter the pincode of your product-->
+256789
+Product Successfully Added....
+Enter y or Y to continue : 
+n
+
